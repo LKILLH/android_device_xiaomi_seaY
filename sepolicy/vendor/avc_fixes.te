@@ -1,0 +1,17 @@
+# Negações observadas nos logs de 2026-11-11 (SELinux em permissive)
+
+# DisplayFeature HAL
+get_prop(vendor_hal_displayfeature_xiaomi_default, hwservicemanager_prop)
+hwbinder_use(vendor_hal_displayfeature_xiaomi_default)
+allow vendor_hal_displayfeature_xiaomi_default default_android_hwservice:hwservice_manager { add find };
+allow vendor_hal_displayfeature_xiaomi_default hidl_base_hwservice:hwservice_manager add;
+
+# Camera HAL
+allow mtk_hal_camera fwk_sensor_service:service_manager find;
+
+# Health HAL
+allow hal_health_default sysfs:file r_file_perms;
+allow hal_health_default sysfs_batteryinfo:file r_file_perms;
+
+# system_suspend
+allow system_suspend { sysfs sysfs_batteryinfo sysfs_rtc }:file r_file_perms;

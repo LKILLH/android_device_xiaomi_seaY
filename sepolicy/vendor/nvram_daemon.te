@@ -1,0 +1,2 @@
+allow nvram_daemon persist_data_file:dir { search };
+allow nvram_daemon persist_data_file:dir { read search };

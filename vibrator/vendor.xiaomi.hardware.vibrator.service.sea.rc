@@ -1,0 +1,4 @@
+service vendor.xiaomi.vibrator /vendor/bin/hw/vendor.xiaomi.hardware.vibrator.service.sea
+    class hal
+    user system
+    group system input
